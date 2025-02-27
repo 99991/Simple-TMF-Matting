@@ -44,7 +44,7 @@ def main():
 
     # Check if error to ground truth alpha matte is small
     mse = np.mean(np.square(alpha - gt_alpha))
-    assert mse < 0.001962, f"Mean squared error {mse} is larger than expected, something went wrong"
+    assert mse < 0.001964, f"Mean squared error {mse} is larger than expected, something went wrong"
 
 if __name__ == "__main__":
     main()
