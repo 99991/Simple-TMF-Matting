@@ -12,8 +12,10 @@ The test image is from https://alphamatting.com/datasets.php.
 
 # Usage
 
-1. Download the pretrained `comp1k.pth` model [from the original authors' repository](https://github.com/Serge-weihao/TMF-Matting?tab=readme-ov-file#results-and-models) and place it in this directory.
-2. Run [`test_single_image.py`](https://github.com/99991/Simple-TMF-Matting/blob/main/test_single_image.py), which will download test images and compute the alpha matte.
+1. [Install PyTorch](https://pytorch.org/get-started/locally/)
+2. Install Pillow: `pip install pillow`
+3. Download the pretrained `comp1k.pth` model [from the original authors' repository](https://drive.google.com/file/d/1zTEYBXaAlEU-nt703W9OFRNchfabEOxs/view) and place it in this directory.
+4. Run [`test_single_image.py`](https://github.com/99991/Simple-TMF-Matting/blob/main/test_single_image.py), which will download test images and compute the alpha matte.
 
 # Citing
 
@@ -30,3 +32,18 @@ If you find TMFNet useful in your research, please consider citing [the original
   publisher={Elsevier}
 }
 ```
+
+# Testing on Composition-1K Test Set
+
+1. Download the pretrained model as above.
+2. Ask [Brain Price](https://arxiv.org/pdf/1703.03872) to send you `Adobe_Deep_Matting_Dataset.zip` and place it in this directory. Do not unzip.
+3. Download and extract the images of the [Pascal VOC2012 dataset](host.robots.ox.ac.uk/pascal/VOC/voc2012/index.html#devkit) to the directory `PascalVOC2012`. You can also link them with `ln -s YOUR_PASCAL_DIR/VOCdevkit/VOC2012/JPEGImages/ PascalVOC2012` if you already have them somewhere else.
+4. Run [`test_composition_1k_dataset.py`](https://github.com/99991/Simple-TMF-Matting/blob/main/test_composition_1k_dataset.py)
+
+# [Results](https://github.com/99991/Simple-TMF-Matting/blob/main/test_composition_1k_dataset.py)
+
+| MSE × 1000 | SAD / 1000 |
+| ----- | ------ |
+| 4.547 | 22.410 |
+
+MSE is slightly worse and SAD is slightly better than original, but minor details such as background interpolation method result in a large difference, so this is probably acceptable.

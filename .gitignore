@@ -1,4 +1,8 @@
 # Byte-compiled / optimized / DLL files
+Adobe_Deep_Matting_Dataset.zip
+PascalVOC2012*
+*.tar
+*.zip
 *.pdf
 *.pth
 *.png

@@ -1,4 +1,4 @@
-from tmfnet import TMFNet
+import tmfnet
 from PIL import Image
 import numpy as np
 import torch
@@ -16,15 +16,7 @@ def main():
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    # Complain if model has not been downloaded yet
-    if not os.path.exists(checkpoint_path):
-        url = "https://github.com/Serge-weihao/TMF-Matting?tab=readme-ov-file#results-and-models"
-        raise FileNotFoundError(f"Download checkpoint {checkpoint_path} from {url} and place it in this directory")
-
-    # Load model
-    state_dict = torch.load(checkpoint_path, map_location="cpu", weights_only=True)["state_dict"]
-    model = TMFNet()
-    model.load_state_dict(state_dict)
+    model = tmfnet.load_model()
     model.to(device)
 
     # Load and preprocess images
@@ -52,7 +44,7 @@ def main():
 
     # Check if error to ground truth alpha matte is small
     mse = np.mean(np.square(alpha - gt_alpha))
-    assert mse < 0.0031642, f"Mean squared error {mse} is larger than expected, something went wrong"
+    assert mse < 0.001962, f"Mean squared error {mse} is larger than expected, something went wrong"
 
 if __name__ == "__main__":
     main()

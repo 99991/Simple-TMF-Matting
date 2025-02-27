@@ -1,3 +1,4 @@
+import os
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -241,3 +242,17 @@ class TMFNet(nn.Module):
         outputs = outputs[:, :, :h, :w]
 
         return outputs
+
+def load_model(checkpoint_path="comp1k.pth"):
+    # Complain if model has not been downloaded yet
+    if not os.path.exists(checkpoint_path):
+        url = "https://github.com/Serge-weihao/TMF-Matting?tab=readme-ov-file#results-and-models"
+        raise FileNotFoundError(f"Download checkpoint {checkpoint_path} from {url} and place it in this directory")
+
+    # Load model from state_dict
+    state_dict = torch.load(checkpoint_path, map_location="cpu", weights_only=True)["state_dict"]
+    model = TMFNet()
+    model.eval()
+    model.load_state_dict(state_dict)
+
+    return model
