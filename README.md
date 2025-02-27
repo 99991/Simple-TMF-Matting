@@ -40,7 +40,7 @@ If you find TMFNet useful in your research, please consider citing [the original
 3. Download and extract the images of the [Pascal VOC2012 dataset](host.robots.ox.ac.uk/pascal/VOC/voc2012/index.html#devkit) to the directory `PascalVOC2012`. You can also link them with `ln -s YOUR_PASCAL_DIR/VOCdevkit/VOC2012/JPEGImages/ PascalVOC2012` if you already have them somewhere else.
 4. Run [`test_composition_1k_dataset.py`](https://github.com/99991/Simple-TMF-Matting/blob/main/test_composition_1k_dataset.py)
 
-# [Results](https://github.com/99991/Simple-TMF-Matting/blob/main/test_composition_1k_dataset.py)
+# [Results](https://github.com/99991/Simple-TMF-Matting/blob/main/composition_1k.md)
 
 | MSE × 1000 | SAD / 1000 |
 | ----- | ------ |
