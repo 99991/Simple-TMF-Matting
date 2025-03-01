@@ -13,9 +13,11 @@ The test image is from https://alphamatting.com/datasets.php.
 # Usage
 
 1. [Install PyTorch](https://pytorch.org/get-started/locally/)
-2. Install Pillow: `pip install pillow`
-3. Download the pretrained `comp1k.pth` model [from the original authors' repository](https://drive.google.com/file/d/1zTEYBXaAlEU-nt703W9OFRNchfabEOxs/view) and place it in this directory.
-4. Run [`test_single_image.py`](https://github.com/99991/Simple-TMF-Matting/blob/main/test_single_image.py), which will download test images and compute the alpha matte.
+2. `pip install pillow`
+3. `git clone https://github.com/99991/Simple-TMF-Matting.git`
+4. `cd Simple-TMF-Matting`
+5. Download the pretrained `comp1k.pth` model [from the original authors' repository](https://drive.google.com/file/d/1zTEYBXaAlEU-nt703W9OFRNchfabEOxs/view) and place it in this directory.
+6. [`python test_single_image.py`](https://github.com/99991/Simple-TMF-Matting/blob/main/test_single_image.py) # downloads test images and computes alpha matte
 
 # Citing
 
